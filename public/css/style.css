@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -50,14 +52,247 @@ table {
 /* START CSS */
 
 body {
-  display : -webkit-box;
-  display : -ms-flexbox;
-  display: flex;
-  flex-direction: column;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #fff;
 }
 
 .img-bgd {
-  background: url(../img/milky-way.jpg)
-  no-repeat center bottom / cover fixed;
+  display : -webkit-box;
+  display : -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+.title {
+  z-index: 5;
+}
+
+.title-api {
+  font-family: "Monoton", Helvetica, sans-serif;
+  display: inline;
+  font-size: 15vw;
+  text-transform: uppercase;
+  color: #035187;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  width: 50%;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+  z-index: 5;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #ffffff, #035187);
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #035187;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card {
+  width: 400px;
+  margin: 0px auto;
+  background-color: white;
+  box-shadow: 0px 5px 20px #999;
+  z-index: 5;
+}
+
+.card a {
+  color: #333;
+  text-decoration: none;
+}
+
+.card:hover .card-image img {
+  width: 160%;
+  filter: grayscale(0);
+}
+
+.card-image {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 120%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: grayscale(1);
+  transition-property: filter width;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+}
+
+.card-body {
+  text-align:center;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+.card-title, .card-excerpt {
+   font-family: 'Playfair Display', serif;
+}
+
+.card-date, .card-title {
+  text-align:center;
+  text-transform:uppercase;
+  font-weight: bold;
+}
+
+.card-date, .card-excerpt {
+  color: #777;
+}
+
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+ }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+ }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+ }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+ }
+}
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+ }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+ }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+ }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+ }
+}
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.stars {
+  background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+}
+.twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite;
+}
+.moon {
+  height: 70vh;
+  width: 70vh;
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+}
+
+@media (min-width: 700px) {
+  .title-api {
+    font-size: 9vw;
+ }
+}
+@media (min-width: 1400px) {
+  .title-api {
+    font-size: 150px;
+ }
+}
+@supports (-webkit-background-clip: text) {
+  .title-api {
+    color: transparent;
+    background: linear-gradient(7deg, #ffffff 50%, #035187 0);
+    -webkit-background-clip: text;
+ }
 }

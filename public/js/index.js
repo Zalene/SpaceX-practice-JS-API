@@ -21,14 +21,25 @@ const showDragons = async() => {
       ))
       .map(dragon => (
         `
-          <li>
-            <p>${dragon.name}</p>
-            <p>${dragon.dry_mass_kg}</p>
-            <p>${dragon.first_flight}</p>
-            <img src="${dragon.flickr_images[2]}" alt="${dragon.name}">
-            <p>${dragon.wikipedia}</p>
-            <p>${dragon.description}</p>
-          </li>
+        <div class="card">
+          <a href="${dragon.wikipedia}">
+            <div class="card-image"><img src="${dragon.flickr_images[2]}" alt="${dragon.name}" /></div>
+
+            <div class="card-body">
+              <div class="card-date">
+                <time>${dragon.first_flight}</time>
+              </div>
+
+              <div class="card-title">
+                <h3>${dragon.name}</h3>
+              </div>
+
+              <div class="card-excerpt">
+                <p>${dragon.description}</p>
+              </div>
+            </div>
+          </a>
+        </div>
         `
       )).join('')
   );
